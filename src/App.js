@@ -32,8 +32,11 @@ class App extends React.Component {
           {/* {data === undefined ? <div>No data</div> : data.map(el=><div key={el.driver_id}>{el.driver_id}</div>)} */}
 
         </header>
-        <Map
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=???????????????????????????????????"
+        <Map 
+          drivers={this.state.data.drivers}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=
+          // AIzaSyCXQzTXrGwuxfamzuN0L6JdjYFZMznaO0w
+          "
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
