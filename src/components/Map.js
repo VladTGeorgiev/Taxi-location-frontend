@@ -4,13 +4,19 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 const Map = withScriptjs(withGoogleMap(props =>
 
     <GoogleMap
-        defaultZoom={8}
-        defaultCenter={{lat: 51.5049375, lng: -0.0964509}}
+        defaultZoom={14}
+        defaultCenter={props.defaultPosition}
     >
+        <Marker
+            position={props.defaultPosition}
+            icon={{url: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'}}
+            label={'You are here!'}
+        />
         {props.drivers.map(driver => (
             <Marker
-            position={{ lat: driver.location.latitude, lng: driver.location.longitude }}
-            key={driver.driver_id}
+                position={{ lat: driver.location.latitude, lng: driver.location.longitude }}
+                icon={{url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}}
+                key={driver.driver_id}
             />
         ))}
     </GoogleMap>

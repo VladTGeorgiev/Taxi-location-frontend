@@ -24,23 +24,22 @@ class App extends React.Component {
 
   render(){
     const data = this.state.data.drivers
-    // const d = data.map(el=><div>{el}</div>)
+    const defaultPosition = {lat: 51.5049375, lng: -0.0964509}
     console.log(data)
     return (
       <div className="App">
-        <header className="App-header">
-          {/* {data === undefined ? <div>No data</div> : data.map(el=><div key={el.driver_id}>{el.driver_id}</div>)} */}
-
-        </header>
-        <Map 
-          drivers={this.state.data.drivers}
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=
-          // AIzaSyCXQzTXrGwuxfamzuN0L6JdjYFZMznaO0w
-          "
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `400px` }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-        />
+        <div className='map'>
+          <Map 
+            drivers={this.state.data.drivers}
+            defaultPosition = {defaultPosition}
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=
+            AIzaSyCXQzTXrGwuxfamzuN0L6JdjYFZMznaO0w
+            "
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `50vh`, width: '80vw' }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+          />
+        </div>
       </div>
     );
   }
