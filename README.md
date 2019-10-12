@@ -1,5 +1,6 @@
 1. npm install
 2. npm install --save react-google-maps
+3. npm install semantic-ui-react
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

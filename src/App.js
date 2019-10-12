@@ -1,19 +1,19 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import { Header, Input, Divider, Label, Button, Icon } from 'semantic-ui-react'
 import API from './adapters/API';
 import Map from './components/Map.js'
-
 
 class App extends React.Component {
 
   constructor(props){
     super(props)
     this.state = {
-      data: {}
+      data: {},
+      value: 0
     }
   }
-
 
   componentDidMount() {
     API.fetchData()
@@ -22,28 +22,79 @@ class App extends React.Component {
       }))
   }
 
+  refreshData() {
+    console.log('refreshing data')
+  }
+
+  handleChange = e => {this.setState( {value: e.target.value} )}
+
+  reduceNumberOfDrivers = () => {
+    if(this.state.value > 0){
+      this.setState({value: parseInt(this.state.value) - 1})
+    } else {
+      return
+    }
+  }
+
+  increaseNumberOfDrivers = () => {
+    if(this.state.value < 51){
+      this.setState({value: parseInt(this.state.value) + 1})
+    } else {
+      return
+    }
+  }
+
   render(){
-    const data = this.state.data.drivers
+    const selectedNumberOfDrivers = this.state.data.drivers === undefined ? null : this.state.data.drivers.sort(function(driverOne, driverTwo){return driverTwo.location.bearing-driverOne.location.bearing}).reverse().slice(0, this.state.value)
     const defaultPosition = {lat: 51.5049375, lng: -0.0964509}
-    console.log(data)
     return (
       <div className="App">
-        <div className='map'>
-          <Map 
-            drivers={this.state.data.drivers}
-            defaultPosition = {defaultPosition}
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=
-            AIzaSyCXQzTXrGwuxfamzuN0L6JdjYFZMznaO0w
-            "
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `50vh`, width: '80vw' }} />}
-            mapElement={<div style={{ height: `100%` }} />}
-          />
-        </div>
+          <Divider hidden />
+          <Header as='h1' color='teal' textAlign='center'>
+            Taxi availability
+          </Header>
+          <Divider hidden/>
+          <Divider hidden/>
+          <Divider horizontal>
+            <Header as='h3' color='teal'>
+              <Icon name='car' />
+              How many taxis would you like to see?
+            </Header>
+          </Divider>
+          <Button color='olive' icon>
+            <Icon name='minus' onClick={this.reduceNumberOfDrivers}/>
+          </Button>
+          <Input type='range' min={0} max={50} value={this.state.value} onChange={this.handleChange}/>
+          <Button color='green' icon>
+            <Icon name='plus' onClick={this.increaseNumberOfDrivers}/>
+          </Button>
+          <div><Label size='big' color='green'>{this.state.value}</Label></div>
+          <Divider hidden />
+          <Button type='submit' color='yellow' size='large' onClick={this.refreshData} >Refresh available taxis</Button>
+          <Divider horizontal>
+            <Header as='h4' color='teal'>
+              <div>
+              <Icon name='map marker alternate' color='purple' /> Your position
+              <Icon></Icon>
+              <Icon name='map marker alternate' color='green' /> Available taxis
+              </div>
+            </Header>
+          </Divider>
+          <div className='map'>
+            <Map 
+              drivers={selectedNumberOfDrivers}
+              defaultPosition = {defaultPosition}
+              googleMapURL='https://maps.googleapis.com/maps/api/js?key=
+              // AIzaSyCXQzTXrGwuxfamzuN0L6JdjYFZMznaO0w
+              '
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `60vh`, width: '80vw' }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+            />
+          </div>
       </div>
     );
   }
-
 }
 
 export default App;

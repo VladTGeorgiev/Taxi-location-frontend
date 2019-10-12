@@ -10,7 +10,6 @@ const Map = withScriptjs(withGoogleMap(props =>
         <Marker
             position={props.defaultPosition}
             icon={{url: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'}}
-            label={'You are here!'}
         />
         {props.drivers.map(driver => (
             <Marker
