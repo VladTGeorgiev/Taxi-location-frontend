@@ -11,7 +11,7 @@ const Map = withScriptjs(withGoogleMap(props =>
             position={props.defaultPosition}
             icon={{url: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'}}
         />
-        {props.drivers.map(driver => (
+        {props.drivers === null ? null : props.drivers.map(driver => (
             <Marker
                 position={{ lat: driver.location.latitude, lng: driver.location.longitude }}
                 icon={{url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}}

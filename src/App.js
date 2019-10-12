@@ -16,6 +16,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+      this.updateState()
+  }
+
+  updateState() {
     API.fetchData()
       .then(data => this.setState({
         data: data
@@ -23,7 +27,8 @@ class App extends React.Component {
   }
 
   refreshData() {
-    console.log('refreshing data')
+    API.requestUpdate()
+      .then(data => this.updateState())
   }
 
   handleChange = e => {this.setState( {value: e.target.value} )}
@@ -46,6 +51,7 @@ class App extends React.Component {
 
   render(){
     const selectedNumberOfDrivers = this.state.data.drivers === undefined ? null : this.state.data.drivers.sort(function(driverOne, driverTwo){return driverTwo.location.bearing-driverOne.location.bearing}).reverse().slice(0, this.state.value)
+    console.log(selectedNumberOfDrivers)
     const defaultPosition = {lat: 51.5049375, lng: -0.0964509}
     return (
       <div className="App">
