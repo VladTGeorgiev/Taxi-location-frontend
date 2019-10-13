@@ -1,5 +1,4 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import { Header, Input, Divider, Label, Button, Icon } from 'semantic-ui-react'
 import API from './adapters/API';
@@ -11,15 +10,11 @@ class App extends React.Component {
     super(props)
     this.state = {
       data: {},
-      value: 0
+      value: 25
     }
   }
 
   componentDidMount() {
-      this.updateState()
-  }
-
-  updateState() {
     API.fetchData()
       .then(data => this.setState({
         data: data
@@ -28,7 +23,9 @@ class App extends React.Component {
 
   refreshData() {
     API.requestUpdate()
-      .then(data => this.updateState())
+      .then(data => this.setState({
+        data: data
+      }))
   }
 
   handleChange = e => {this.setState( {value: e.target.value} )}
@@ -42,7 +39,7 @@ class App extends React.Component {
   }
 
   increaseNumberOfDrivers = () => {
-    if(this.state.value < 51){
+    if(this.state.value < 50){
       this.setState({value: parseInt(this.state.value) + 1})
     } else {
       return
@@ -51,7 +48,7 @@ class App extends React.Component {
 
   render(){
     const selectedNumberOfDrivers = this.state.data.drivers === undefined ? null : this.state.data.drivers.sort(function(driverOne, driverTwo){return driverTwo.location.bearing-driverOne.location.bearing}).reverse().slice(0, this.state.value)
-    console.log(selectedNumberOfDrivers)
+
     const defaultPosition = {lat: 51.5049375, lng: -0.0964509}
     return (
       <div className="App">
@@ -59,7 +56,6 @@ class App extends React.Component {
           <Header as='h1' color='teal' textAlign='center'>
             Taxi availability
           </Header>
-          <Divider hidden/>
           <Divider hidden/>
           <Divider horizontal>
             <Header as='h3' color='teal'>
@@ -70,13 +66,24 @@ class App extends React.Component {
           <Button color='olive' icon>
             <Icon name='minus' onClick={this.reduceNumberOfDrivers}/>
           </Button>
-          <Input type='range' min={0} max={50} value={this.state.value} onChange={this.handleChange}/>
+          <Icon/>
+          <Input type='range' inverted min={0} max={50} value={this.state.value} onChange={this.handleChange}/>
+          <Icon/>
           <Button color='green' icon>
             <Icon name='plus' onClick={this.increaseNumberOfDrivers}/>
           </Button>
-          <div><Label size='big' color='green'>{this.state.value}</Label></div>
-          <Divider hidden />
-          <Button type='submit' color='yellow' size='large' onClick={this.refreshData} >Refresh available taxis</Button>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Label size='big' color='green'>{this.state.value}</Label>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Divider hidden fitted/>
+          <Button type='submit' color='yellow' size='large' onClick={()=>this.refreshData()} >Refresh available taxis</Button>
           <Divider horizontal>
             <Header as='h4' color='teal'>
               <div>
@@ -90,9 +97,7 @@ class App extends React.Component {
             <Map 
               drivers={selectedNumberOfDrivers}
               defaultPosition = {defaultPosition}
-              googleMapURL='https://maps.googleapis.com/maps/api/js?key=
-              // AIzaSyCXQzTXrGwuxfamzuN0L6JdjYFZMznaO0w
-              '
+              googleMapURL='https://maps.googleapis.com/maps/api/js?key=ENTER_YOUR_KEY_HERE'
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `60vh`, width: '80vw' }} />}
               mapElement={<div style={{ height: `100%` }} />}

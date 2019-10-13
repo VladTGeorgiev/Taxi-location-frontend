@@ -2,6 +2,16 @@
 2. npm install --save react-google-maps
 3. npm install semantic-ui-react
 
+
+
+backend
+1. Node.js
+1. Install mongodb : brew tap mongodb/brew (no Homebrew? https://brew.sh/#install)
+- brew install mongodb-community@4.2
+- brew services start mongodb-community@4.2
+- npm install cors
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
