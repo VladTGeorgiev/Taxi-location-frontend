@@ -1,3 +1,13 @@
+1. Clone the repo
+2. cd in Taxi-location-frontend/
+3. npm install
+4. npm start open localhost:3000
+
+
+
+
+
+
 1. npm install
 2. npm install --save react-google-maps
 3. npm install semantic-ui-react
