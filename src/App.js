@@ -4,6 +4,7 @@ import { Header, Input, Divider, Label, Button, Icon } from 'semantic-ui-react'
 import API from './adapters/API';
 import Map from './components/Map.js'
 
+
 class App extends React.Component {
 
   constructor(props){
@@ -31,7 +32,7 @@ class App extends React.Component {
   handleChange = e => {this.setState( {value: e.target.value} )}
 
   reduceNumberOfDrivers = () => {
-    if(this.state.value > 0){
+    if(this.state.value > 1){
       this.setState({value: parseInt(this.state.value) - 1})
     } else {
       return
@@ -47,7 +48,9 @@ class App extends React.Component {
   }
 
   render(){
-    const selectedNumberOfDrivers = this.state.data.drivers === undefined ? null : this.state.data.drivers.sort(function(driverOne, driverTwo){return driverTwo.location.bearing-driverOne.location.bearing}).reverse().slice(0, this.state.value)
+    const selectedNumberOfDrivers = this.state.data.drivers === undefined ? 
+    null : this.state.data.drivers.sort(function(driverOne, driverTwo)
+    {return driverTwo.location.bearing-driverOne.location.bearing}).reverse().slice(0, this.state.value)
 
     const defaultPosition = {lat: 51.5049375, lng: -0.0964509}
     return (
@@ -67,7 +70,7 @@ class App extends React.Component {
             <Icon name='minus' onClick={this.reduceNumberOfDrivers}/>
           </Button>
           <Icon/>
-          <Input type='range' inverted min={0} max={50} value={this.state.value} onChange={this.handleChange}/>
+          <Input type='range' inverted min={1} max={50} value={this.state.value} onChange={this.handleChange}/>
           <Icon/>
           <Button color='green' icon>
             <Icon name='plus' onClick={this.increaseNumberOfDrivers}/>
@@ -97,7 +100,7 @@ class App extends React.Component {
             <Map 
               drivers={selectedNumberOfDrivers}
               defaultPosition = {defaultPosition}
-              googleMapURL='https://maps.googleapis.com/maps/api/js?key=ENTER_YOUR_KEY_HERE'
+              googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyCXQzTXrGwuxfamzuN0L6JdjYFZMznaO0w'
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `60vh`, width: '80vw' }} />}
               mapElement={<div style={{ height: `100%` }} />}
