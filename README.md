@@ -1,45 +1,65 @@
-1. Clone the repo
-2. cd in Taxi-location-frontend/
-3. npm install
-4. npm start open localhost:3000
-
-
-
-
-
-
-1. npm install
-2. npm install --save react-google-maps
-3. npm install semantic-ui-react
-
-
-
-backend
-1. Node.js
-1. Install mongodb : brew tap mongodb/brew (no Homebrew? https://brew.sh/#install)
-- brew install mongodb-community@4.2
-- brew services start mongodb-community@4.2
-- npm install cors
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `yarn start`
+# Description
 
-Runs the app in the development mode.<br />
+An app showing real-time positions of up to 50 of the available taxis in the City of London.
+## Install the [![Backend](https://github.com/VladTGeorgiev/Taxi-backend)] first, to run the server and proceed with the instructions below.
+
+![Preview](/public/preview.png)
+
+
+
+# Prerequisite
+## You will need to obtain a Google Maps API key from the ![Google Developer Console](https://https://console.developers.google.com/)]. Once you have your key, you will have to add it in ~/src/App.js the section below and save the file.
+
+![Google API Key](/public/preview.png)
+
+
+
+# Technologies 
+
+    React v16.10.02 [![React](https://reactjs.org/)]
+    Semantic UI React 0.88.1 [![Semantic UI React](https://react.semantic-ui.com/)]
+    React Google Maps [![react-google-maps](https://www.npmjs.com/package/react-google-maps)]
+
+
+
+# Installation
+
+## Download and copy this repository by running the following command in your terminal
+
+    $ git clone git@github.com:VladTGeorgiev/Taxi-location-frontend.git
+
+## Navigate to the project's folder, e.g. './Taxi-location-frontend'
+
+    $ cd Taxi-location-frontend/
+
+## Install all dependancies
+
+    $ npm install
+
+## Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+    $ npm start
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## To stop the server run use "Control-C"
+
+
+
+# License
+    "Taxi availability" is an open source software licensed as MIT.
+
+
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ### `yarn build`
 
