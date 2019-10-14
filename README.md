@@ -7,22 +7,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 An app showing real-time positions of up to 50 of the available taxis in the City of London.
 ## Install the [![Backend](https://github.com/VladTGeorgiev/Taxi-backend)] first, to run the server and proceed with the instructions below.
 
-![Preview](/public/preview.png)
+![Preview](/media/Preview.png)
 
 
 
 # Prerequisite
 ## You will need to obtain a Google Maps API key from the ![Google Developer Console](https://https://console.developers.google.com/)]. Once you have your key, you will have to add it in ~/src/App.js the section below and save the file.
 
-![Google API Key](/public/preview.png)
+![Google API Key](/media/Goolge_api_key.png)
 
 
 
 # Technologies 
 
-    React v16.10.02 [![React](https://reactjs.org/)]
-    Semantic UI React 0.88.1 [![Semantic UI React](https://react.semantic-ui.com/)]
-    React Google Maps [![react-google-maps](https://www.npmjs.com/package/react-google-maps)]
+cReact v16.10.02 [![React](https://reactjs.org/)]
+Semantic UI React 0.88.1 [![Semantic UI React](https://react.semantic-ui.com/)]
+React Google Maps [![react-google-maps](https://www.npmjs.com/package/react-google-maps)]
 
 
 
