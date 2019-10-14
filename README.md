@@ -5,14 +5,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Description
 
 An app showing real-time positions of up to 50 of the available taxis in the City of London.
-## Install the [![Backend](https://github.com/VladTGeorgiev/Taxi-backend)] first, to run the server and proceed with the instructions below.
+## Install the [![Backend](https://github.com/VladTGeorgiev/Taxi-backend)] first to run the server and proceed with the instructions below.
 
 ![Preview](/media/Preview.png)
 
 
 
 # Prerequisite
-## You will need to obtain a Google Maps API key from the ![Google Developer Console](https://https://console.developers.google.com/)]. Once you have your key, you will have to add it in ~/src/App.js the section below and save the file.
+## You will need to obtain a Google Maps API key from the ![Google Developer Console](https://https://console.developers.google.com/)]. Once you have your key, you will have to add it in ~/src/App.js in the section below and save the file.
 
 ![Google API Key](/media/Goolge_api_key.png)
 
@@ -20,27 +20,27 @@ An app showing real-time positions of up to 50 of the available taxis in the Cit
 
 # Technologies 
 
-cReact v16.10.02 [![React](https://reactjs.org/)]
-Semantic UI React 0.88.1 [![Semantic UI React](https://react.semantic-ui.com/)]
+React v16.10.02 [![React](https://reactjs.org/)]<br/>
+Semantic UI React 0.88.1 [![Semantic UI React](https://react.semantic-ui.com/)]<br/>
 React Google Maps [![react-google-maps](https://www.npmjs.com/package/react-google-maps)]
 
 
 
 # Installation
 
-## Download and copy this repository by running the following command in your terminal
+## Download and copy this repository by running the following command in your terminal.
 
     $ git clone git@github.com:VladTGeorgiev/Taxi-location-frontend.git
 
-## Navigate to the project's folder, e.g. './Taxi-location-frontend'
+## Navigate to the project's folder, e.g. './Taxi-location-frontend'.
 
     $ cd Taxi-location-frontend/
 
-## Install all dependancies
+## Install all dependancies.
 
     $ npm install
 
-## Runs the app in the development mode.<br />
+## Run the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
@@ -48,7 +48,7 @@ You will also see any lint errors in the console.
 
     $ npm start
 
-## To stop the server run use "Control-C"
+## To stop the server run use "Control-C".
 
 
 
