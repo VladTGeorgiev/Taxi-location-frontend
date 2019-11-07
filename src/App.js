@@ -100,7 +100,7 @@ class App extends React.Component {
             <Map 
               drivers={selectedNumberOfDrivers}
               defaultPosition = {defaultPosition}
-              googleMapURL='https://maps.googleapis.com/maps/api/js?key=ENTER_YOUR_API_KEY_HERE'
+              googleMapURL='https://maps.googleapis.com/maps/api/js?key=EAIzaSyB8lRHYXZE7qkkCI45GQMHlwZHypXYE0Uk'
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `60vh`, width: '80vw' }} />}
               mapElement={<div style={{ height: `100%` }} />}
