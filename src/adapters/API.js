@@ -1,4 +1,4 @@
-const endpoint = 'https://taxi-b.herokuapp.com/'
+const endpoint = 'http://localhost:5000/data'
 
 const fetchData = () => {
     return fetch(endpoint)
